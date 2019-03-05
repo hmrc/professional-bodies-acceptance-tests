@@ -15,17 +15,23 @@
  */
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
-import org.scalatest.Matchers
-import org.scalatest.concurrent.Eventually
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
-import cucumber.api.scala.{EN, ScalaDsl}
+import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.PBATRListPage
 
-import scala.util.Try
+class PBATRListStepDef extends BaseStepDef {
 
-trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually with Matchers {
+  When("""^the user navigates to the professional bodies listing page$""") { () =>
+    driver.navigate().to(PBATRListPage.url)
+  }
 
-  sys.addShutdownHook {
-    Try(driver.quit())
+  Then("""^the count of organisations shown is (\d+)$""") { (count: Int) =>
+    eventually {
+      driver.findElements(By.xpath("//li[@data-filtered='false']")).size() shouldBe (count)
+    }
+  }
+
+  When("""^the user enters \"(.+)\" into the search box$""") { (searchtext: String) =>
+    driver.findElement(By.id("search")).sendKeys(searchtext)
   }
 
 }
