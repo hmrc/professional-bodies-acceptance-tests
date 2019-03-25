@@ -19,7 +19,6 @@ import org.scalatest.Matchers
 import org.scalatest.concurrent.Eventually
 import uk.gov.hmrc.test.ui.driver.BrowserDriver
 import cucumber.api.scala.{EN, ScalaDsl}
-
 import scala.util.Try
 
 trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually with Matchers {

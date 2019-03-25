@@ -8,6 +8,8 @@ credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
+resolvers += Resolver.bintrayRepo("hmrc", "releases")
+
 libraryDependencies ++= Seq(
   "org.seleniumhq.selenium"    %  "selenium-chrome-driver"  % "3.9.1",
   "org.seleniumhq.selenium"    %  "selenium-support"        % "3.9.1",
@@ -20,6 +22,7 @@ libraryDependencies ++= Seq(
   "com.novocode"               %  "junit-interface"         % "0.11"  % "test",
   "ch.qos.logback"             %  "logback-classic"         % "1.2.3",
   "com.typesafe.scala-logging" %% "scala-logging"           % "3.8.0",
-  "com.typesafe"               %  "config"                  % "1.3.2"
+  "com.typesafe"               %  "config"                  % "1.3.2",
+  "uk.gov.hmrc"                %% "zap-automation"          % "1.7.0"
   )
 

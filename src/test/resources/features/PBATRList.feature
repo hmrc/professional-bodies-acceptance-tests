@@ -15,3 +15,11 @@ Feature: Display list of approved professional organisations
     Given the user navigates to the professional bodies listing page
     When the user enters "Am" into the search box
     Then the count of organisations shown is 291
+
+
+
+Feature: Run an OWASP ZAP screening
+
+  Scenario: Run Zap Test
+    Given i run the whole test
+    Then i should see a result of the zap testing
