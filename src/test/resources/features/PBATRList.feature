@@ -4,7 +4,7 @@ Feature: Display list of approved professional organisations
 
   Scenario: Viewing all organisations
     When the user navigates to the professional bodies listing page
-    Then the count of organisations shown is 2890
+    Then the count of organisations shown is 2892
 
   Scenario: Searching for "AABC"
     Given the user navigates to the professional bodies listing page
